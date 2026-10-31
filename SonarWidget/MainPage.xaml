@@ -1,0 +1,72 @@
+<Page
+    x:Class="SonarWidget.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Loaded="Page_Loaded">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Padding="16" Spacing="10">
+
+            <TextBlock Text="Sonar" FontSize="18" FontWeight="SemiBold"/>
+
+            <StackPanel Spacing="4">
+                <TextBlock Text="Todas las salidas" FontWeight="SemiBold"/>
+                <ComboBox x:Name="AllCombo" HorizontalAlignment="Stretch"
+                          PlaceholderText="Elegir un dispositivo para todo"
+                          DisplayMemberPath="Name"
+                          SelectionChanged="All_SelectionChanged"/>
+            </StackPanel>
+
+            <Rectangle Height="1" Fill="Gray" Opacity="0.4" Margin="0,4"/>
+
+            <StackPanel Spacing="4">
+                <TextBlock Text="Juego"/>
+                <ComboBox x:Name="GameCombo" Tag="game" HorizontalAlignment="Stretch"
+                          DisplayMemberPath="Name" SelectionChanged="Channel_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel Spacing="4">
+                <TextBlock Text="Chat"/>
+                <ComboBox x:Name="ChatCombo" Tag="chat" HorizontalAlignment="Stretch"
+                          DisplayMemberPath="Name" SelectionChanged="Channel_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel Spacing="4">
+                <TextBlock Text="Multimedia"/>
+                <ComboBox x:Name="MediaCombo" Tag="media" HorizontalAlignment="Stretch"
+                          DisplayMemberPath="Name" SelectionChanged="Channel_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel Spacing="4">
+                <TextBlock Text="Auxiliar"/>
+                <ComboBox x:Name="AuxCombo" Tag="aux" HorizontalAlignment="Stretch"
+                          DisplayMemberPath="Name" SelectionChanged="Channel_SelectionChanged"/>
+            </StackPanel>
+
+            <Rectangle Height="1" Fill="Gray" Opacity="0.4" Margin="0,4"/>
+
+            <StackPanel Spacing="4">
+                <TextBlock Text="Micrófono"/>
+                <ComboBox x:Name="MicCombo" Tag="mic" HorizontalAlignment="Stretch"
+                          DisplayMemberPath="Name" SelectionChanged="Channel_SelectionChanged"/>
+            </StackPanel>
+
+            <Grid ColumnSpacing="8" Margin="0,6,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="RefreshButton" Content="Actualizar"
+                        HorizontalAlignment="Stretch" Click="Refresh_Click"/>
+                <Button x:Name="GearButton" Grid.Column="1" FontFamily="Segoe MDL2 Assets" Content="&#xE713;"
+                        ToolTipService.ToolTip="Opciones avanzadas" Click="Gear_Click"/>
+            </Grid>
+
+            <StackPanel x:Name="AdvancedPanel" Visibility="Collapsed" Spacing="4">
+                <TextBlock Text="Puerto de SteelSeries GG (normalmente 6327)" Opacity="0.7" TextWrapping="Wrap"/>
+                <TextBox x:Name="PortBox" Text="6327" InputScope="Number"/>
+                <TextBlock Text="Solo cambia esto si GG usa otro puerto; luego pulsa Actualizar. El puerto de Sonar se detecta solo."
+                           Opacity="0.6" TextWrapping="Wrap" FontSize="12"/>
+            </StackPanel>
+
+            <TextBlock x:Name="StatusText" TextWrapping="Wrap" Opacity="0.8" Text="..."/>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

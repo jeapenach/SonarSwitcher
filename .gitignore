@@ -1,0 +1,49 @@
+# --- Visual Studio / UWP ---
+.vs/
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+ARM/
+ARM64/
+AppPackages/
+BundleArtifacts/
+Generated_Code/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.rsuser
+*.log
+*.tmp
+*.appxrecipe
+*_h.h
+*.pdb
+*.ilk
+*.vsidx
+*.lock.json
+project.lock.json
+.vscode/
+
+# --- NuGet ---
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+
+# --- Certificados y claves de firma ---
+*.pfx
+*.cer
+*.snk
+*.publishsettings
+*_TemporaryKey.pfx
+
+# --- Pruebas con la API local de GG/Sonar (traen tus dispositivos y presets) ---
+sonar_full.json
+*_output.txt
+coreProps.json
+
+# Instalador generado (Inno Setup)
+installer/Output/
