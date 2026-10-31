@@ -7,7 +7,12 @@
 > **Aviso:** este es un proyecto personal de la comunidad. **No está afiliado, respaldado ni patrocinado por SteelSeries.**
 > "SteelSeries" y "Sonar" son marcas de sus respectivos propietarios y se mencionan solo para indicar compatibilidad.
 > Usa la API local de GG/Sonar, que **no es oficial ni está documentada**: puede dejar de funcionar con cualquier actualización de GG.
+> Este repositorio no incluye ni distribuye ningún software de SteelSeries, y no se hizo ingeniería inversa de GG/Sonar:
+> el widget solo envía peticiones al servidor local que GG expone en tu propio PC.
+> Si SteelSeries lo solicita, el proyecto se retirará.
 > Se ofrece tal cual, sin garantías (ver `LICENSE`).
+
+![Sonar Switcher funcionando dentro de Xbox Game Bar](docs/screenshot.png)
 
 ## Para qué sirve
 
@@ -21,6 +26,20 @@ Game Bar (se abre con el botón Xbox del mando o con `Win + G`) y permite:
 
 Muestra los valores actuales al abrirse y comprueba, después de cada cambio, que Sonar realmente los aplicó.
 
+## Cómo se usa
+
+Abre Game Bar (botón Xbox del mando o `Win + G`), abre el menú de widgets y elige **Sonar Switcher**. Puedes anclarlo para que quede en pantalla.
+
+- **Todas las salidas**: elige un dispositivo y Juego, Chat, Multimedia y Auxiliar se envían a él de una vez. Útil para pasar de la TV a los audífonos y volver.
+- **Juego, Chat, Multimedia, Auxiliar**: un selector por canal, para enviar cada uno a un dispositivo distinto.
+- **Micrófono**: elige el dispositivo de entrada que usa Sonar.
+- **Botón Actualizar**: vuelve a leer el estado actual de Sonar (útil si cambiaste algo en la app de GG o conectaste un dispositivo).
+- **Engranaje**: opciones avanzadas (puerto de GG).
+
+Las listas muestran solo dispositivos reales que estén activos; los dispositivos virtuales de Sonar se ocultan. Después de cada cambio,
+el widget vuelve a leer el estado de Sonar y muestra en la línea de estado si se aplicó. Todo funciona solo con el mando
+(cruceta para moverte, A para abrir y seleccionar).
+
 ## Requisitos
 
 - Windows 10 (1809 o superior) o Windows 11, con **Xbox Game Bar** activado.
@@ -29,6 +48,15 @@ Muestra los valores actuales al abrirse y comprueba, después de cada cambio, qu
   con *Universal Windows Platform tools* y el SDK de Windows 11 10.0.26100).
 
 Probado con unos Arctis Nova 7X en modo clásico, en octubre de 2026. No se ha probado con otros dispositivos ni versiones.
+
+## Instalación (instalador)
+
+1. Descarga `SonarSwitcher-Setup-1.0.0.exe` desde la página de [Releases](../../releases) (compara su SHA256 con el de las notas del release).
+2. Ejecútalo (pide permisos de administrador). Confía en el certificado autofirmado del paquete, instala el widget y le da
+   acceso a `localhost`. Al desinstalar "Sonar Switcher (instalador)" se quita todo eso.
+3. Windows puede mostrar un aviso de SmartScreen porque el instalador no está firmado. Game Bar puede tardar unos segundos
+   en volver a responder después de instalar o desinstalar.
+4. Con GG y Sonar abiertos, pulsa `Win + G`, abre el menú de widgets y busca **Sonar Switcher**.
 
 ## Instalación (desde el código fuente)
 
@@ -59,7 +87,7 @@ se puede consultar en `C:\ProgramData\SteelSeries\SteelSeries Engine 3\coreProps
 - Depende de una API no oficial; puede romperse sin aviso.
 - Solo modo clásico de Sonar; no cambia presets (Quickset) ni volúmenes.
 - La interfaz está en español.
-- Solo se distribuye como código fuente: instalarlo fuera de la Microsoft Store requiere compilarlo y activar el modo desarrollador.
+- No está en la Microsoft Store: el instalador usa un certificado autofirmado, así que Windows puede mostrar un aviso de SmartScreen.
 
 ## Transparencia sobre el uso de IA
 
